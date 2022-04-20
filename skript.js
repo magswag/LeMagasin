@@ -4,92 +4,99 @@ const varer = [
         pris: 5.2,
         info: "Rødt",
         bilde: "varer/eple.png",
-        kategori: "frukt-grønt"
+        kategorier: ["frukt-grønt", "frukt"]
     },
     {
         navn: "Croissant",
         pris: 19.9,
         info: "m/Sjokolade",
         bilde: "varer/croissant.png",
-        kategori: "bakevarer"
+        kategorier: ["bakevarer"]
     },
     {
         navn: "Brød",
         pris: 34,
         info: "",
         bilde: "varer/brød.png",
-        kategori: "bakevarer"
+        kategorier: ["bakevarer"]
     },
     {
         navn: "Ananas",
         pris: 32.9,
         info: "stykk",
         bilde: "varer/ananas.png",
-        kategori: "frukt-grønt"
+        kategorier: ["frukt-grønt", "frukt"]
     },
     {
         navn: "Dom Perignon",
         pris: 3298,
         info: "Brut 2012",
         bilde: "varer/dompa.png",
-        kategori: "drikke"
+        kategorier: ["drikke", "alkohol"]
     },
     {
         navn: "Brokkoli",
         pris: 8,
         info: "",
         bilde: "varer/brokkoli.png",
-        kategori: "frukt-grønt"
+        kategorier: ["frukt-grønt", "grønnsak"]
     },
     {
         navn: "Gulrot",
         pris: 5,
         info: "",
         bilde: "varer/gulrot.png",
-        kategori: "frukt-grønt"
+        kategorier: ["frukt-grønt", "grønnsak"]
     },
     {
         navn: "Sørlandschips",
         pris: 23,
         info: "Spansk paprika 195g",
         bilde: "varer/sørlandschips_spansk_paprika.png",
-        kategori: "snacks-godis"
+        kategorier: ["snacks-godis", "potetgull"]
     },
     {
         navn: "Freeze",
         pris: 95,
         info: "5 no-7",
         bilde: "varer/freeze-5-no-7.png",
-        kategori: "tobakk"
+        kategorier: ["tobakk", "snus"]
     },
     {
         navn: "Lettmelk 0,5%",
         pris: 19.9,
         info: "1l Tine",
         bilde: "varer/tinemelk-ekstra-lett.png",
-        kategori: "drikke"
+        kategorier: ["drikke", "melk"]
     },
     {
         navn: "Coca Cola",
         pris: 22.2,
-        info: "0,33l flaske",
+        info: "0,5l flaske",
         bilde: "varer/coca-cola-halvliter.png",
-        kategori: "drikke"
+        kategorier: ["drikke", "leskedrikke"]
     },
     {
         navn: "Grandiosa Pizza",
         pris: 53.4,
         info: "575g Stabburet",
         bilde: "varer/grandiosa.png",
-        kategori: "frysevarer"
+        kategorier: ["frysevarer", "frossenpizza"]
     },
     {
         navn: "Jarlsberg",
         pris: 103,
         info: "Skorpefri 700g Tine",
         bilde: "varer/jarlsberg.png",
-        kategori: "ost"
+        kategorier: ["ost"]
     },
+    {
+        navn: "Fanta",
+        pris: 22.2,
+        info: "0,5l flaske",
+        bilde: "varer/fanta.png",
+        kategorier: ["drikke", "leskedrikke"]
+    }
 ]
 
 
@@ -145,7 +152,9 @@ function oppdaterSøk() {
     document.getElementById("varer").innerHTML = ""
 
     let filtrerteVarer = varer.filter(vare => {
-        if (kategoriVelger.value == "alle" || vare.kategori.toLowerCase() == kategoriVelger.value.toLowerCase()) {
+        console.log(vare.navn)
+        console.log(vare.kategorier)
+        if (kategoriVelger.value == "alle" || vare.kategorier.includes(kategoriVelger.value.toLowerCase()) ) {
             if (søkefelt.value == "" || vare.navn.toLowerCase().includes(søkefelt.value.toLowerCase())) {
                 return true
             }
