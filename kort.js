@@ -18,12 +18,13 @@ class MatVareKomponent extends HTMLElement {
         this.shadowRoot.innerHTML = `
         <style>
             #topp {
-                background-color: white;
+                background-color: var(--bakgrunn);
                 padding:0px;
                 border-radius: 16px;
                 overflow: hidden;
                 box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
                 transition: filter 0.1s ease-in-out,box-shadow 0.1s ease-in-out;
+                color: var(--tekstfarge);
             }
 
             #topp:hover {
