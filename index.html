@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#bdeba7">
+    <title>Handlenettet</title>
+    <script src="kort.js"></script>
+    <style>
+        body {
+            margin: 0px;
+            display: flex; 
+            flex-direction: column;
+        }
+
+        #varer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            grid-auto-rows: 1fr;
+        }
+
+        #søkefelt {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1.5em;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 500px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            padding: 24px;
+        }
+
+        header {
+            width: 100%;
+            background-color: #bdeba7;
+            position:fixed;
+            z-index: 99;
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* For desktop: */
+            #varer {
+                grid-template-columns: repeat(10, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <input type="search" id="søkefelt" placeholder="Søk etter varer her">
+        <div id="filtre">
+            <label for="kategori">Kategori:</label>
+            <select name="kategori" id="kategori">
+                <option value="alle">Alle</option>
+                <option value="frukt-grønt">Frukt & grønt</option>
+                <option value="ost">Ost</option>
+                <option value="drikke">Drikke</option>
+                <option value="bakevarer">Bakevarer</option>
+                <option value="snacks-godis">Snacks & godis</option>
+                <option value="frysevarer">Frysevarer</option>
+                <option value="tobakk">Schnoobie & sigg</option>
+            </select>
+            <br>
+            <label for="sortering">Sorter etter:</label>
+            <select name="sortering" id="sortering">
+                <option value="alfabetisk">Alfabetisk</option>
+                <option value="pris">Pris</option>
+            </select>
+        </div>
+    </header>
+    <div style="margin: 16px; ">
+        
+        <div id="varer">
+
+        </div>
+        <script src="skript.js"></script>
+    </div>
+</body>
+
+</html>
