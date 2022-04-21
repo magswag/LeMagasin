@@ -19,13 +19,13 @@ class MatVareKomponent extends HTMLElement {
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style>
             #topp {
-                background-color: var(--overflate);
+                background-color: var(--overflate-variant);
                 padding:0px;
-                border-radius: 16px;
+                border-radius: 24px;
                 overflow: hidden;
                 height: 100%;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.4);
                 transition: filter 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
                 color: var(--tekstfarge);
@@ -38,39 +38,39 @@ class MatVareKomponent extends HTMLElement {
                 font-family: 'Times New Roman', serif;
             }
 
-            #lol {
-                padding: 16px
+            #lol {      
+                display: flex;
+                padding: 16px;
+                flex-direction: column;
+                gap: 8px;
             }
 
             p {
                 margin: 0px;
-                margin-top: 4px;
                 font-family: 'Roboto', sans-serif;
             }
 
             #bilde {
-                width: 100px;
-                height: 100px;
+                border-radius: 24px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #fff;
+                background-color: var(--sekundær);
             }
-           
 
-            #bilde img {
-                border-radius-top-left: 16px;
-                border-radius-bottom-left: 16px;
-
-                -webkit-backdrop-filter: blur(8px) saturate(1.5);
-
-                backdrop-filter: blur(8px) saturate(1.5);
-                padding: 25px;
-                margin: -25px;
+            img {
                 
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                padding: 24px;
+                border-radius: 12px;
+                box-sizing: border-box;
+                -webkit-filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.75));
+                filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.75));
             }
 
             #forelder {
+                border-radius: 12px;
                 background-repeat: no-repeat;
                 background-image: url("${this.vare.bilde}");
                 background-size: 75px;
@@ -80,9 +80,6 @@ class MatVareKomponent extends HTMLElement {
                 font-family: 'Roboto', sans-serif;
             }
 
-            img {
-                width: 75px;
-            }
 
             @media only screen and (min-width: 768px) {
                 #topp {
@@ -106,8 +103,8 @@ class MatVareKomponent extends HTMLElement {
                 #bilde img {
                     border-radius:0px;
                     border-right:1px solid #16222c; 
-    
-                    -webkit-backdrop-filter: blur(12px) saturate(1.5);
+                    
+                    -webkit-backdrop-filter: blur(0px) saturate(1.5);
     
                     backdrop-filter: blur(0px) saturate(1.5);
                     padding: 20px;
@@ -123,17 +120,16 @@ class MatVareKomponent extends HTMLElement {
         </style>
         <div id="topp">
             <div id="bilde">
-                <div id="forelder">
-                    <img src="${this.vare.bilde}">
-                </div>
+                <img src="${this.vare.bilde}">
             </div>
 
             <div id="lol">
                 <h3 id="pris">${this.vare.pris.toString().replace(".", ",")}kr</h3>
                 <h3>${this.vare.navn}</h3>
                 <p>${this.vare.info}</p>
+                <i class="material-icons" style="font-size:36px;margin-left:auto;">add_shopping_cart</i>
+
             </div>
-            <i class="material-icons" style="font-size:36px;justify-self:end;">add_shopping_cart</i>
         </div>
         `
     }

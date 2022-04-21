@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#dae6cc">
+    <meta name="theme-color" content="#fefdf5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1b1c18" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <title>Handlenettet</title>
@@ -15,13 +16,13 @@
             margin: 0px;
             display: flex;
             flex-direction: column;
-            background-color: var(--bakgrunn);
+            background-color: var(--overflate);
         }
 
         #varer {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
             grid-auto-rows: 1fr;
         }
 
@@ -45,7 +46,7 @@
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 8px;
             padding: 16px;
             width: 100%;
             background-color: var(--overflate);
@@ -54,15 +55,15 @@
         #fab {
             user-select: none;
             position: fixed;
-            bottom:24px;
+            bottom: 24px;
             right: 24px;
             z-index: 1;
-            background-color: #e1ffdb;
+            background-color: var(--primær);
             border-radius: 24px;
             border: 0;
             padding: 24px;
             box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
-            color: rgba(0, 0, 0, 0.5);
+            color: var(--på-primær);
         }
 
         #fab:active {
@@ -71,6 +72,7 @@
 
         label {
             font-family: 'Roboto', sans-serif;
+            color: var(--tekstfarge);
         }
 
         label:focus {
@@ -87,7 +89,11 @@
             :root {
                 --bakgrunn: black;
                 --tekstfarge: white;
-                --overflate: #1a1c17;
+                --overflate: #1b1c18;
+                --overflate-variant: #44483d;
+                --primær: #a9d473;
+                --på-primær: #1d3700;
+                --sekundær: #c0cbad;
             }
         }
 
@@ -95,12 +101,21 @@
             :root {
                 --bakgrunn: #effce1;
                 --tekstfarge: black;
-                --overflate: #dae6cc;
+                --overflate: #fefdf5;
+                --overflate-variant: #e1e4d5;
+                --primær: #446813;
+                --på-primær: #ffffff;
+                --sekundær: #586249;
+            }
+        }
+
+        @media screen and (orientation: landscape) {
+            #varer {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
         @media only screen and (min-width: 768px) {
-
             /* For desktop: */
             #varer {
                 grid-template-columns: repeat(10, 1fr);
