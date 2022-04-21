@@ -65,9 +65,9 @@ class MatVareKomponent extends HTMLElement {
                 border-radius:0px;
                 border-right:1px solid #16222c; 
 
-                -webkit-backdrop-filter: blur(14px) saturate(3);
+                -webkit-backdrop-filter: blur(8px) saturate(1.5);
 
-                backdrop-filter: blur(12px) saturate(1.5);
+                backdrop-filter: blur(8px) saturate(1.5);
                 padding: 20px;
                 margin: -20px;
             }
@@ -102,6 +102,17 @@ class MatVareKomponent extends HTMLElement {
                 #bilde {
                     width: 125px;
                     height: 125px;
+                }
+
+                #bilde img {
+                    border-radius:0px;
+                    border-right:1px solid #16222c; 
+    
+                    -webkit-backdrop-filter: blur(12px) saturate(1.5);
+    
+                    backdrop-filter: blur(12px) saturate(1.5);
+                    padding: 20px;
+                    margin: -20px;
                 }
             }
 
