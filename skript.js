@@ -106,6 +106,7 @@ const varer = [
     },
 ]
 
+let handleliste = []
 
 const queryString = window.location.search
 const urlParams = new URLSearchParams(queryString)
@@ -113,6 +114,8 @@ const urlParams = new URLSearchParams(queryString)
 const kategoriVelger = document.querySelector("#kategori")
 const søkefelt = document.querySelector("#søkefelt")
 const sortering = document.querySelector("#sortering")
+const antallKurv = document.querySelector("#antall-kurv")
+
 
 let filterKategori = urlParams.get('kategori')
 let søk = urlParams.get('søk')
@@ -179,11 +182,31 @@ function oppdaterSøk() {
     for (let vare of filtrerteVarer) {
         const komponent = document.createElement('matvare-komponent')
         komponent.vare = vare
+        komponent.id = varer.findIndex(varee => vare.navn == varee.navn)
+        komponent.addEventListener("lagtTil", (e) => {
+            leggTilIHandleliste(e.detail.id)
+        })
 
         document.getElementById('varer').appendChild(komponent)
     }
 }
 
 function lol() {
-    
+
+}
+
+function leggTilIHandleliste(id) {
+    if (handleliste.some(e => e.id == id)) {
+        handleliste[handleliste.findIndex(e => e.id == id)].antall++
+    } else {
+        handleliste.push({ "id": id, "antall": 1 })
+    }
+
+    let sum = 0
+
+    for (let vare of handleliste) {
+        sum += vare.antall
+    }
+    antallKurv.innerHTML = sum
+
 }

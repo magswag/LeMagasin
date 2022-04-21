@@ -19,11 +19,11 @@ class MatVareKomponent extends HTMLElement {
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style>
             #topp {
+                align-self: start;
                 background-color: var(--overflate-variant);
                 padding:0px;
                 border-radius: 24px;
                 overflow: hidden;
-                height: 100%;
                 display: flex;
                 flex-direction: column;
                 box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.4);
@@ -59,7 +59,6 @@ class MatVareKomponent extends HTMLElement {
             }
 
             img {
-                
                 width: 100%;
                 aspect-ratio: 1 / 1;
                 padding: 24px;
@@ -78,6 +77,16 @@ class MatVareKomponent extends HTMLElement {
 
             #pris {
                 font-family: 'Roboto', sans-serif;
+            }
+
+            button {
+                background-color: var(--sekundær);
+                color: var(--på-primær);
+                border: 0;
+                border-radius: 500px;
+                align-self: flex-end;
+                padding: 16px;
+                width: 96px;
             }
 
 
@@ -110,6 +119,7 @@ class MatVareKomponent extends HTMLElement {
                     padding: 20px;
                     margin: -20px;
                 }
+
                 #topp:hover {
                     filter: brightness(0.85);
                     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.25);
@@ -127,12 +137,24 @@ class MatVareKomponent extends HTMLElement {
                 <h3 id="pris">${this.vare.pris.toString().replace(".", ",")}kr</h3>
                 <h3>${this.vare.navn}</h3>
                 <p>${this.vare.info}</p>
-                <i class="material-icons" style="font-size:36px;margin-left:auto;">add_shopping_cart</i>
-
+                <button>
+                <i class="material-icons" style="font-size:24px;">add_shopping_cart</i>
+                </button>
             </div>
         </div>
         `
+
+
+        this.shadowRoot.querySelector('button').addEventListener('click', () => {
+            this.antall++
+            this.dispatchEvent(new CustomEvent('lagtTil', {
+                detail: {
+                    id: this.id
+                }
+            }))
+        })
     }
+
 }
 
 customElements.define('matvare-komponent', MatVareKomponent);
