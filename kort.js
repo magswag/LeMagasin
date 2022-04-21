@@ -25,16 +25,12 @@ class MatVareKomponent extends HTMLElement {
                 height: 100%;
                 display: flex;
                 flex-direction: row;
-                box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
+                box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
                 transition: filter 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
                 color: var(--tekstfarge);
             }
 
-            #topp:hover {
-                filter: brightness(0.85);
-                box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.25);
-                cursor: pointer;
-            }
+          
 
             h3 {
                 margin: 0px;
@@ -90,6 +86,7 @@ class MatVareKomponent extends HTMLElement {
             @media only screen and (min-width: 768px) {
                 #topp {
                     flex-direction: column;
+                    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
                 }
 
                 img {
@@ -114,6 +111,11 @@ class MatVareKomponent extends HTMLElement {
                     backdrop-filter: blur(12px) saturate(1.5);
                     padding: 20px;
                     margin: -20px;
+                }
+                #topp:hover {
+                    filter: brightness(0.85);
+                    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.25);
+                    cursor: pointer;
                 }
             }
 

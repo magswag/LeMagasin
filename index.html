@@ -27,19 +27,22 @@
         #søkefelt {
             width: 100%;
             box-sizing: border-box;
-            font-size: 1.25em;
+            font-size: 1.15em;
             font-family: 'Roboto', sans-serif;
             border-radius: 500px;
-            border: 1px solid rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(0, 0, 0, 0.4);
             padding: 16px;
         }
 
         header {
             box-sizing: border-box;
-
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
             padding: 16px;
             width: 100%;
             background-color: #bdeba7;
+            box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.4);
         }
 
         #fab {
@@ -53,6 +56,16 @@
             padding: 16px;
             width: 96px;
             height: 96px;
+        }
+
+        label {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        select {
+            border-radius: 500px;
+            padding: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.4);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -74,6 +87,7 @@
             /* For desktop: */
             #varer {
                 grid-template-columns: repeat(10, 1fr);
+                gap: 16px;
             }
         }
     </style>
@@ -86,8 +100,9 @@
         </span>
     </button>
     <header>
+        <img src="varer/jarlsberg.png" width="96" style="align-self: center; filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.4))">
         <input type="search" id="søkefelt" placeholder="Søk etter varer her">
-        <div id="filtre">
+        <div>
             <label for="kategori">Kategori:</label>
             <select name="kategori" id="kategori">
                 <option value="alle">Alle</option>
@@ -111,7 +126,8 @@
 
                 <option value="tobakk">Schnoobie & sigg</option>
             </select>
-            <br>
+        </div>
+        <div>
             <label for="sortering">Sorter etter:</label>
             <select name="sortering" id="sortering">
                 <option value="alfabetisk">Alfabetisk</option>
