@@ -18,14 +18,14 @@ class MatVareKomponent extends HTMLElement {
         this.shadowRoot.innerHTML = `
         <style>
             #topp {
-                background-color: var(--bakgrunn);
+                background-color: var(--overflate);
                 padding:0px;
                 border-radius: 16px;
                 overflow: hidden;
                 height: 100%;
                 display: flex;
                 flex-direction: row;
-                box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
+                box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.4);
                 transition: filter 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
                 color: var(--tekstfarge);
             }
@@ -86,7 +86,7 @@ class MatVareKomponent extends HTMLElement {
             @media only screen and (min-width: 768px) {
                 #topp {
                     flex-direction: column;
-                    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
+                    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.5);
                 }
 
                 img {
