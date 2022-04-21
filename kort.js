@@ -16,6 +16,7 @@ class MatVareKomponent extends HTMLElement {
     connectedCallback() {
         this.antall = 0
         this.shadowRoot.innerHTML = `
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style>
             #topp {
                 background-color: var(--overflate);
@@ -132,6 +133,7 @@ class MatVareKomponent extends HTMLElement {
                 <h3>${this.vare.navn}</h3>
                 <p>${this.vare.info}</p>
             </div>
+            <i class="material-icons" style="font-size:36px;">add_shopping_cart</i>
         </div>
         `
     }
