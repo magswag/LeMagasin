@@ -1,20 +1,20 @@
 class MatVareKomponent extends HTMLElement {
 
-    get pris() {
-        return "35kr"
+    get antall() {
+        return this.getAttribute('antall')
     }
 
-    get navn() {
-        return "Banan"
+    set antall(ny) {
+        this.setAttribute('antall', ny)
     }
 
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-    
     }
 
     connectedCallback() {
+        this.antall = 0
         this.shadowRoot.innerHTML = `
         <style>
             #topp {
@@ -22,8 +22,11 @@ class MatVareKomponent extends HTMLElement {
                 padding:0px;
                 border-radius: 16px;
                 overflow: hidden;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
                 box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
-                transition: filter 0.1s ease-in-out,box-shadow 0.1s ease-in-out;
+                transition: filter 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
                 color: var(--tekstfarge);
             }
 
@@ -49,20 +52,22 @@ class MatVareKomponent extends HTMLElement {
             }
 
             #bilde {
-                width: 175px;
-                height:175px;
+                width: 100px;
+                height: 100px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 background-color: #fff;
             }
+           
 
             #bilde img {
-                border-radius:16px;
+                border-radius:0px;
+                border-right:1px solid #16222c; 
 
                 -webkit-backdrop-filter: blur(14px) saturate(3);
 
-                backdrop-filter: blur(14px) saturate(3);
+                backdrop-filter: blur(12px) saturate(1.5);
                 padding: 20px;
                 margin: -20px;
             }
@@ -70,24 +75,46 @@ class MatVareKomponent extends HTMLElement {
             #forelder {
                 background-repeat: no-repeat;
                 background-image: url("${this.vare.bilde}");
-                background-size: 125px;
+                background-size: 75px;
             }
 
             #pris {
                 font-family: 'Roboto', sans-serif;
             }
 
+            img {
+                width: 75px;
+            }
+
+            @media only screen and (min-width: 768px) {
+                #topp {
+                    flex-direction: column;
+                }
+
+                img {
+                    width: 100px;
+                }
+
+                #forelder {
+                    background-size: 100px;
+                }
+
+                #bilde {
+                    width: 125px;
+                    height: 125px;
+                }
+            }
+
         </style>
         <div id="topp">
             <div id="bilde">
                 <div id="forelder">
-                    <img src="${this.vare.bilde}" height="125" width="125">
+                    <img src="${this.vare.bilde}">
                 </div>
             </div>
+
             <div id="lol">
-                <h3 id="pris">${
-                    this.vare.pris.toString().replace(".", ",")
-                }kr</h3>
+                <h3 id="pris">${this.vare.pris.toString().replace(".", ",")}kr</h3>
                 <h3>${this.vare.navn}</h3>
                 <p>${this.vare.info}</p>
             </div>

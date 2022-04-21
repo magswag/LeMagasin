@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,7 @@
 
         #varer {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             gap: 16px;
             grid-auto-rows: 1fr;
         }
@@ -30,7 +31,7 @@
             font-family: 'Roboto', sans-serif;
             border-radius: 500px;
             border: 1px solid rgba(0, 0, 0, 0.5);
-            padding: 24px;
+            padding: 16px;
         }
 
         header {
@@ -39,8 +40,19 @@
             padding: 16px;
             width: 100%;
             background-color: #bdeba7;
+        }
+
+        #fab {
             position: fixed;
-            z-index: 99;
+            bottom: 16px;
+            right: 16px;
+            z-index: 1;
+            background-color: #bdeba7;
+            border-radius: 500px;
+            border: 0;
+            padding: 16px;
+            width: 96px;
+            height: 96px;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -68,6 +80,11 @@
 </head>
 
 <body>
+    <button id="fab">
+        <span class="material-icons-round">
+            shopping_cart
+        </span>
+    </button>
     <header>
         <input type="search" id="søkefelt" placeholder="Søk etter varer her">
         <div id="filtre">
@@ -102,7 +119,7 @@
             </select>
         </div>
     </header>
-    <div style="margin: 16px; margin-top:175px">
+    <div style="margin: 16px;">
 
         <div id="varer">
 

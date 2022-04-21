@@ -96,11 +96,15 @@ const varer = [
         info: "0,5l flaske",
         bilde: "varer/fanta.png",
         kategorier: ["drikke", "leskedrikke"]
-    }
+    },
+    {
+        navn: "Solo",
+        pris: 22.2,
+        info: "0,5l flaske",
+        bilde: "varer/solo.png",
+        kategorier: ["drikke", "leskedrikke"]
+    },
 ]
-
-
-
 
 
 const queryString = window.location.search
@@ -152,9 +156,7 @@ function oppdaterSøk() {
     document.getElementById("varer").innerHTML = ""
 
     let filtrerteVarer = varer.filter(vare => {
-        console.log(vare.navn)
-        console.log(vare.kategorier)
-        if (kategoriVelger.value == "alle" || vare.kategorier.includes(kategoriVelger.value.toLowerCase()) ) {
+        if (kategoriVelger.value == "alle" || vare.kategorier.includes(kategoriVelger.value.toLowerCase())) {
             if (søkefelt.value == "" || vare.navn.toLowerCase().includes(søkefelt.value.toLowerCase())) {
                 return true
             }
@@ -163,7 +165,7 @@ function oppdaterSøk() {
 
     switch (sortering.value) {
         case "alfabetisk":
-            filtrerteVarer.sort((a,b) => {
+            filtrerteVarer.sort((a, b) => {
                 return a.navn.toLowerCase().localeCompare(b.navn.toLowerCase());
             })
             break;
