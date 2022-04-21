@@ -61,13 +61,13 @@ class MatVareKomponent extends HTMLElement {
             #bilde img {
                 border-radius-top-left: 16px;
                 border-radius-bottom-left: 16px;
-                border-right:1px solid #16222c; 
 
                 -webkit-backdrop-filter: blur(8px) saturate(1.5);
 
                 backdrop-filter: blur(8px) saturate(1.5);
-                padding: 20px;
-                margin: -20px;
+                padding: 25px;
+                margin: -25px;
+                
             }
 
             #forelder {
@@ -109,7 +109,7 @@ class MatVareKomponent extends HTMLElement {
     
                     -webkit-backdrop-filter: blur(12px) saturate(1.5);
     
-                    backdrop-filter: blur(12px) saturate(1.5);
+                    backdrop-filter: blur(0px) saturate(1.5);
                     padding: 20px;
                     margin: -20px;
                 }
@@ -133,7 +133,7 @@ class MatVareKomponent extends HTMLElement {
                 <h3>${this.vare.navn}</h3>
                 <p>${this.vare.info}</p>
             </div>
-            <i class="material-icons" style="font-size:36px;">add_shopping_cart</i>
+            <i class="material-icons" style="font-size:36px;justify-self:end;">add_shopping_cart</i>
         </div>
         `
     }
