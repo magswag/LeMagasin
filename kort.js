@@ -62,7 +62,8 @@ class MatVareKomponent extends HTMLElement {
            
 
             #bilde img {
-                border-radius:0px;
+                border-radius-top-left: 16px;
+                border-radius-bottom-left: 16px;
                 border-right:1px solid #16222c; 
 
                 -webkit-backdrop-filter: blur(8px) saturate(1.5);
