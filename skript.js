@@ -183,3 +183,7 @@ function oppdaterSøk() {
         document.getElementById('varer').appendChild(komponent)
     }
 }
+
+function lol() {
+    
+}

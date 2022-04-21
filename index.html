@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#bdeba7">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <title>Handlenettet</title>
     <script src="kort.js"></script>
     <style>
@@ -31,7 +32,13 @@
             font-family: 'Roboto', sans-serif;
             border-radius: 500px;
             border: 2px solid rgba(0, 0, 0, 0.4);
+            transition: border 0.1s;
             padding: 16px;
+        }
+
+        #søkefelt:focus {
+            outline: none;
+            border: 4px solid rgba(0, 0, 0, 0.4);
         }
 
         header {
@@ -46,6 +53,7 @@
         }
 
         #fab {
+            user-select: none;
             position: fixed;
             bottom: 16px;
             right: 16px;
@@ -56,10 +64,19 @@
             padding: 16px;
             width: 96px;
             height: 96px;
+            box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        #fab:active {
+            background-color: #91c37a;
         }
 
         label {
             font-family: 'Roboto', sans-serif;
+        }
+
+        label:focus {
+            outline: none;
         }
 
         select {
@@ -89,40 +106,45 @@
                 grid-template-columns: repeat(10, 1fr);
                 gap: 16px;
             }
+
+            #fab:hover {
+                cursor: pointer;
+            }
         }
     </style>
 </head>
 
 <body>
-    <button id="fab">
-        <span class="material-icons-round">
-            shopping_cart
-        </span>
+
+    <button id="fab" onclick="lol()">
+        <i class="material-icons" style="font-size:48px;">shopping_cart</i>
+
     </button>
     <header>
-        <img src="varer/jarlsberg.png" width="96" style="align-self: center; filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.4))">
+        <img src="varer/jarlsberg.png" width="96"
+            style="align-self: center; filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.4))">
         <input type="search" id="søkefelt" placeholder="Søk etter varer her">
         <div>
             <label for="kategori">Kategori:</label>
             <select name="kategori" id="kategori">
                 <option value="alle">Alle</option>
                 <option value="frukt-grønt">Frukt & grønt</option>
-                <option value="frukt">&nbsp;&nbsp;&nbsp;-Frukt</option>
-                <option value="grønnsak">&nbsp;&nbsp;&nbsp;-Grønnsaker</option>
+                <option value="frukt">&nbsp;&nbsp;&nbsp;Frukt</option>
+                <option value="grønnsak">&nbsp;&nbsp;&nbsp;Grønnsaker</option>
                 <option value="ost">Ost</option>
 
                 <option value="drikke">Drikke</option>
-                <option value="leskedrikke">&nbsp;&nbsp;&nbsp;-Leskedrikke</option>
-                <option value="alkohol">&nbsp;&nbsp;&nbsp;-Alkohol</option>
-                <option value="melk">&nbsp;&nbsp;&nbsp;-Melk</option>
+                <option value="leskedrikke">&nbsp;&nbsp;&nbsp;Leskedrikke</option>
+                <option value="alkohol">&nbsp;&nbsp;&nbsp;Alkohol</option>
+                <option value="melk">&nbsp;&nbsp;&nbsp;Melk</option>
 
                 <option value="bakevarer">Bakevarer</option>
 
                 <option value="snacks-godis">Snacks & godis</option>
-                <option value="potetgull">&nbsp;&nbsp;&nbsp;-Potetgull</option>
+                <option value="potetgull">&nbsp;&nbsp;&nbsp;Potetgull</option>
 
                 <option value="frysevarer">Frysevarer</option>
-                <option value="frossenpizza">&nbsp;&nbsp;&nbsp;-Frossenpizza</option>
+                <option value="frossenpizza">&nbsp;&nbsp;&nbsp;Frossenpizza</option>
 
                 <option value="tobakk">Schnoobie & sigg</option>
             </select>
