@@ -86,11 +86,19 @@ class MatVareKomponent extends HTMLElement {
                 border-radius: 500px;
                 align-self: flex-end;
                 padding: 16px;
-                width: 96px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 4px;
+                transition: filter 0.05s ease-in-out;
             }
 
-
             @media only screen and (min-width: 768px) {
+
+                button:hover {
+                    filter: brightness(0.75);
+                    cursor: pointer;
+                }
                 #topp {
                     flex-direction: column;
                     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.5);
@@ -119,12 +127,6 @@ class MatVareKomponent extends HTMLElement {
                     padding: 20px;
                     margin: -20px;
                 }
-
-                #topp:hover {
-                    filter: brightness(0.85);
-                    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.25);
-                    cursor: pointer;
-                }
             }
 
         </style>
@@ -134,10 +136,10 @@ class MatVareKomponent extends HTMLElement {
             </div>
 
             <div id="lol">
-                <h3 id="pris">${this.vare.pris.toString().replace(".", ",")}kr</h3>
                 <h3>${this.vare.navn}</h3>
                 <p>${this.vare.info}</p>
                 <button>
+                <h3 style="display: inline;" id="pris">${this.vare.pris.toString().replace(".", ",")}kr</h3>
                 <i class="material-icons" style="font-size:24px;">add_shopping_cart</i>
                 </button>
             </div>

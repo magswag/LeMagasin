@@ -51,6 +51,11 @@
             padding: 16px;
             width: 100%;
             background-color: var(--overflate);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            transition: transform 0.4s ease-in-out;
         }
 
         #fab {
@@ -89,6 +94,11 @@
             border: 1px solid rgba(0, 0, 0, 0.4);
         }
 
+        header.scroll-up {
+            box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
+        }
+        
+
         @media (prefers-color-scheme: dark) {
             :root {
                 --bakgrunn: black;
@@ -120,6 +130,7 @@
         }
 
         @media only screen and (min-width: 768px) {
+
             /* For desktop: */
             #varer {
                 grid-template-columns: repeat(10, 1fr);
@@ -152,6 +163,9 @@
                 <option value="grønnsak">&nbsp;&nbsp;&nbsp;Grønnsaker</option>
                 <option value="ost">Ost</option>
 
+                <option value="kjøtt">Kjøtt</option>
+                <option value="storfe">&nbsp;&nbsp;&nbsp;Storfe</option>
+
                 <option value="drikke">Drikke</option>
                 <option value="leskedrikke">&nbsp;&nbsp;&nbsp;Leskedrikke</option>
                 <option value="alkohol">&nbsp;&nbsp;&nbsp;Alkohol</option>
@@ -176,13 +190,15 @@
             </select>
         </div>
     </header>
-    <div style="margin: 16px;">
+    <main>
+        <div style="margin: 16px;">
 
-        <div id="varer">
+            <div id="varer">
 
+            </div>
         </div>
-        <script src="skript.js"></script>
-    </div>
+    </main>
+    <script src="skript.js"></script>
 </body>
 
 </html>

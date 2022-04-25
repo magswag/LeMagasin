@@ -28,6 +28,27 @@ const varer = [
         kategorier: ["frukt-grønt", "frukt"]
     },
     {
+        navn: "Mango",
+        pris: 32.9,
+        info: "stykk",
+        bilde: "varer/mango.png",
+        kategorier: ["frukt-grønt", "frukt"]
+    },
+    {
+        navn: "Kjøttdeig",
+        pris: 32.9,
+        info: "stykk",
+        bilde: "varer/kjøttdeig.png",
+        kategorier: ["kjøtt", "storfe"]
+    },
+    {
+        navn: "Appelsin",
+        pris: 32.9,
+        info: "stykk",
+        bilde: "varer/appelsin.png",
+        kategorier: ["frukt-grønt", "frukt"]
+    },
+    {
         navn: "Dom Perignon",
         pris: 3298,
         info: "Brut 2012",
@@ -104,7 +125,17 @@ const varer = [
         bilde: "varer/solo.png",
         kategorier: ["drikke", "leskedrikke"]
     },
+    {
+        navn: "Pringles",
+        pris: 23,
+        info: "Spansk paprika 194g",
+        bilde: "varer/pringles-original.png",
+        kategorier: ["snacks-godis", "potetgull"]
+    },
 ]
+
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
 
 let handleliste = []
 
@@ -210,3 +241,29 @@ function leggTilIHandleliste(id) {
     antallKurv.innerHTML = sum
 
 }
+const header = document.querySelector("header")
+const body = document.body;
+const main = document.querySelector("main");
+const headerHeight = header.offsetHeight;
+main.style.paddingTop = headerHeight + "px";
+let lastScroll = 0;
+var gang = 0;
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset;
+
+    if ((currentScroll - lastScroll) > 0) {
+        gang = clamp(gang + (currentScroll - lastScroll), 0, headerHeight)
+        header.style.top = -gang + "px"
+    } else {
+        gang = clamp(gang + (currentScroll - lastScroll), 0, headerHeight)
+        header.style.top = -gang + "px"
+    }
+
+    if(currentScroll > headerHeight - 6) {
+        header.classList.add("scroll-up");
+    } else {
+        header.classList.remove("scroll-up");
+    }
+
+    lastScroll = currentScroll;
+})
