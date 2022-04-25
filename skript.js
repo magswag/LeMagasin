@@ -220,6 +220,8 @@ function oppdaterSøk() {
 
         document.getElementById('varer').appendChild(komponent)
     }
+
+    document.querySelector("#antall-res").innerHTML = "Antall resultater: " + filtrerteVarer.length
 }
 
 function lol() {
@@ -259,7 +261,7 @@ main.style.paddingTop = headerHeight + "px";
 let lastScroll = 0;
 var gang = 0;
 window.addEventListener("scroll", () => {
-    debounce(handScroll, 100/60);
+    debounce(handScroll, 16.66666);
 })
 
 function handScroll() {
