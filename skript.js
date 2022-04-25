@@ -241,6 +241,14 @@ function leggTilIHandleliste(id) {
     antallKurv.innerHTML = sum
 
 }
+
+function debounce(method, delay) {
+    clearTimeout(method._tId);
+    method._tId = setTimeout(function () {
+        method();
+    }, delay);
+}
+
 const header = document.querySelector("header")
 const body = document.body;
 const main = document.querySelector("main");
@@ -251,11 +259,15 @@ main.style.paddingTop = headerHeight + "px";
 let lastScroll = 0;
 var gang = 0;
 window.addEventListener("scroll", () => {
+    debounce(handScroll, 100/60);
+})
+
+function handScroll() {
     headerHeight = header.offsetHeight;
     let currentScroll = window.pageYOffset;
 
 
-  
+
     let komme = false
 
     if (currentScroll > headerHeight - (logo.offsetHeight + 32)) {
@@ -271,4 +283,4 @@ window.addEventListener("scroll", () => {
     header.style.top = -gang + "px"
 
     lastScroll = currentScroll;
-})
+}
