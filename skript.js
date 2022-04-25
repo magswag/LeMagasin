@@ -244,26 +244,31 @@ function leggTilIHandleliste(id) {
 const header = document.querySelector("header")
 const body = document.body;
 const main = document.querySelector("main");
-const headerHeight = header.offsetHeight;
+const logo = document.querySelector("#logo");
+
+let headerHeight = header.offsetHeight;
 main.style.paddingTop = headerHeight + "px";
 let lastScroll = 0;
 var gang = 0;
 window.addEventListener("scroll", () => {
+    headerHeight = header.offsetHeight;
     let currentScroll = window.pageYOffset;
 
-    if ((currentScroll - lastScroll) > 0) {
-        gang = clamp(gang + (currentScroll - lastScroll), 0, headerHeight)
-        header.style.top = -gang + "px"
-    } else {
-        gang = clamp(gang + (currentScroll - lastScroll), 0, headerHeight)
-        header.style.top = -gang + "px"
-    }
 
-    if(currentScroll > headerHeight - 6) {
+  
+    let komme = false
+
+    if (currentScroll > headerHeight - (logo.offsetHeight + 32)) {
         header.classList.add("scroll-up");
+        komme = true
     } else {
         header.classList.remove("scroll-up");
+        komme = false
     }
+    let hmm = komme ? logo.offsetHeight + 32 : 0
+
+    gang = clamp(gang + (currentScroll - lastScroll), hmm, headerHeight)
+    header.style.top = -gang + "px"
 
     lastScroll = currentScroll;
 })
