@@ -8,6 +8,9 @@
     <meta name="theme-color" content="#fefdf5" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#1b1c18" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
 
     <title>Handlenettet</title>
     <script src="kort.js"></script>
@@ -56,6 +59,7 @@
             left: 0;
             z-index: 999;
             transition: transform 0.4s ease-in-out;
+            backdrop-filter: blur(8px);
         }
 
         #fab {
@@ -97,13 +101,13 @@
         header.scroll-up {
             box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
         }
-        
+
 
         @media (prefers-color-scheme: dark) {
             :root {
                 --bakgrunn: black;
                 --tekstfarge: white;
-                --overflate: #1b1c18;
+                --overflate: #1b1c18d3;
                 --overflate-variant: #44483d;
                 --primær: #a9d473;
                 --på-primær: #1d3700;
@@ -115,7 +119,7 @@
             :root {
                 --bakgrunn: #effce1;
                 --tekstfarge: black;
-                --overflate: #fefdf5;
+                --overflate: #fefdf5d8;
                 --overflate-variant: #e1e4d5;
                 --primær: #446813;
                 --på-primær: #ffffff;
@@ -151,8 +155,7 @@
         <i class="material-icons" style="font-size:42px;">shopping_cart</i>
     </button>
     <header>
-        <img src="varer/jarlsberg.png" width="96"
-            id="logo"
+        <img src="varer/jarlsberg.png" width="96" id="logo"
             style="align-self: center; filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.4)); margin-bottom:32px;">
         <input type="search" id="søkefelt" placeholder="Søk etter varer her">
         <div>

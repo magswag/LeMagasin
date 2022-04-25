@@ -16,6 +16,9 @@ class MatVareKomponent extends HTMLElement {
     connectedCallback() {
         this.antall = 0
         this.shadowRoot.innerHTML = `
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style>
             #topp {
@@ -35,7 +38,7 @@ class MatVareKomponent extends HTMLElement {
 
             h3 {
                 margin: 0px;
-                font-family: 'Times New Roman', serif;
+                font-family: 'Libre Baskerville', serif;
             }
 
             #lol {      
@@ -47,6 +50,7 @@ class MatVareKomponent extends HTMLElement {
 
             p {
                 margin: 0px;
+                
                 font-family: 'Roboto', sans-serif;
             }
 
