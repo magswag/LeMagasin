@@ -32,9 +32,7 @@ class MatVareKomponent extends HTMLElement {
                 box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.4);
                 transition: filter 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
                 color: var(--tekstfarge);
-            }
-
-          
+            }   
 
             h3 {
                 margin: 0px;
